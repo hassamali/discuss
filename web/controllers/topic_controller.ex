@@ -5,6 +5,7 @@ defmodule Discuss.TopicController do
 
   def new(conn, params) do
     changset = Topic.changeset(%Topic{}, %{})
+    render conn, "new.html"
   end
 
 end
