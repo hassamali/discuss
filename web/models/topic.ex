@@ -9,7 +9,7 @@ defmodule Discuss.Topic do
     struct
     |> cast(params, [:title])
     |> validate_required([:title])
-    |> validate_length(:title, max: 5)
+    |> validate_length(:title, max: 50)
   end
 
 end
