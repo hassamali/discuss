@@ -1,8 +1,8 @@
 defmodule Discuss.User do
   use Discuss.Web, :model
-  @fields [:title, :provider, :token]
+  @fields [:email, :provider, :token]
 
-  schema " users" do
+  schema "users" do
     field :email, :string
     field :provider, :string
     field :token, :string
@@ -11,7 +11,7 @@ defmodule Discuss.User do
 
   def changeset(struct, params \\ %{}) do
     struct
-    |>cast(params, @fields) 
+    |>cast(params, @fields)
     |>validate_required(@fields)
   end
 end
