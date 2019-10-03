@@ -14,14 +14,28 @@
   </head>
 
   <body>
+    
+    <nav class="light-blue">
+      <div class="nav-wrapper container">
+        <a href="/" class="brand-logo">
+          Discussions
+        </a>
+        <ul class="right">
+          <%= if @conn.assigns[:user] do  %>
+            <li>
+              Logout
+            </li>
+          <% else %>
+            <li>
+              <%= link "Log in with Github", to: auth_path(@conn, :request, "github") %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+
+
     <div class="container">
-      <header class="header">
-        <nav role="navigation">
-          <ul class="nav nav-pills">
-            <li>Discuss</li>
-          </ul>
-        </nav>
-      </header>
 
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
